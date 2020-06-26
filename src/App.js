@@ -20,9 +20,7 @@ const styles = theme => ({
   table: {
     minWidth: 1080
   }
-}
-
-)
+})
 
 const customers = [
  {
