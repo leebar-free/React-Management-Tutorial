@@ -24,13 +24,13 @@ class CustomerDelete extends React.Component {
 
     }
 
-    handleClickOpen = (e) => {
+    handleClickOpen = () => {
         this.setState({
             open: true
         });
     }
 
-    handleClose = (e) => {
+    handleClose = () => {
         this.setState({
             open: false
         });
