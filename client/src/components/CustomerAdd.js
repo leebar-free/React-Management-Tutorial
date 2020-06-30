@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {useDispatch} from 'react-redux';
+// import {useDispatch} from 'react-redux';
 import { post } from 'axios';
 
 // class CustomerAdd extends React.Component {
@@ -17,9 +17,9 @@ function CustomerAdd(props) {
     const [Job, setJob] = useState("");
     const [FileName, setFileName] = useState("");
 
-    const onFileHandler = (event) => {
-        setFile(event.currentTarget.value);
-    };
+    // const onFileHandler = (event) => {
+    //     setFile(event.currentTarget.value);
+    // };
 
     const onUserNameHandler = (event) => {
         setUserName(event.currentTarget.value);
@@ -75,9 +75,11 @@ function CustomerAdd(props) {
             }
         };
 
-        const request = post(url, formData, config)
+        // const request = post(url, formData, config)
+        post(url, formData, config)
             .then((response) => {
                 console.log(response.data);
+                props.stateRefresh();
             });
 
             setFile(null);
@@ -87,7 +89,8 @@ function CustomerAdd(props) {
             setJob("");
             setFileName("");
 
-            window.location.reload();
+            // window.location.reload();
+            // this.props.stateRefresh();
 
     }
 
