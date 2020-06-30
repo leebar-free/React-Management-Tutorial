@@ -41,6 +41,8 @@ app.get('/api/customers', (req, res) => {
 app.use('/image', express.static('./upload'));
 
 app.post('/api/customers', upload.single('image'), (req, res) => {
+    console.log('app.post===================');
+
     let sql = 'INSERT INTO CUSTOMER VALUES (null, ?, ?, ?, ?, ?, now(), 0)';
     let image = '/image/' + req.file.filename;
     let username = req.body.username;
@@ -63,6 +65,8 @@ app.post('/api/customers', upload.single('image'), (req, res) => {
 });
 
 app.delete('/api/customers/:id', (req, res) => {
+    console.log('app.delete...id :: ', req.params.id);
+
     let sql = 'UPDATE CUSTOMER SET isDeleted = 1 WHERE ID = ?';
     let params = [req.params.id];
     connection.query(sql, params,
